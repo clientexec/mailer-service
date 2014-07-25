@@ -84,7 +84,7 @@ class PluginMailer extends ServicePlugin
                 $this->user->getLanguage();    // just to get the customFields filled
 
                 if ($this->settings->get("Attach PDF When Mailing Invoice") == 1) {
-                    require_once 'modules/billing/models/PDFInvoice2.php';
+                    require_once 'modules/billing/models/PDFInvoice.php';
                     $pdf = new PDFInvoice($tUser, $invoiceId);
                     $row['attachment'] = $pdf->get();
 
