@@ -76,7 +76,7 @@ class PluginMailer extends ServicePlugin
                 //Issue - if the service "bulk mailer" is enabled, the pdf attached to the invoice is getting corrupted
                 //because UTF-8 charset do not taking the pdf content.
                 $invoiceId = strrchr($row['dfilename'], "_");
-                $invoiceId = mb_substr($invoiceId,1,strlen($invoiceId)-4);
+                $invoiceId = mb_substr($invoiceId,1,strlen($invoiceId)-5);
                 $tempInvoice = new Invoice($invoiceId);
                 $tUser = new User($tempInvoice->getUserID());
 
