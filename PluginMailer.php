@@ -66,8 +66,9 @@ class PluginMailer extends ServicePlugin
             if (strpos($row['dfilename'], "||") !== false) {
                 $row['dfilename'] = explode("||", $row['dfilename']);
 
-                //$row['attachment'] = $this->_string_base64_decode($row['attachment']);
-                //$row['attachment'] = unserialize($row['attachment']);
+                // this is needed for multiple attachments per email.
+                $row['attachment'] = $this->_string_base64_decode($row['attachment']);
+                $row['attachment'] = unserialize($row['attachment']);
             }
 
             if(!is_array($row['dfilename']) && $row['emailtype'] == 'invoice'){
